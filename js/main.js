@@ -37,16 +37,12 @@ const faqs = [
   accordianItem.appendChild(answer)
   Accordian.appendChild(accordianItem)
 
-
   // toggle for accordianItme
   accordianItem.addEventListener('click', () =>{
     const accordianAnswer = document.querySelectorAll('.accordian-answer')
     accordianAnswer.forEach(answer => {
       answer.style.display = 'none'
     })
-   
-
    accordianItem.querySelector('.accordian-answer').style.display = 'block'
-   
   }) 
  })
