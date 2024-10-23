@@ -15,7 +15,7 @@ let signIn = true
 document.body.addEventListener('click', (e) => {
     if (e.target.id != 'switchForm') return;
     switchFormAuto()
-  
+
 })
 
 ///?? form submit
@@ -34,11 +34,12 @@ authForm.addEventListener('submit', function (e) {
         const users = JSON.parse(localStorage.getItem('users')) || []
 
         const existingUser = users.find(user => user.password == password.value && user.email == email.value)
-        if(existingUser){
+        if (existingUser) {
 
             localStorage.setItem('onlineUser', JSON.stringify(existingUser))
             alert('you are in')
-        }else {
+            window.location.href = `../html/movies.html`
+        } else {
             alert('invalid credential')
         }
 
@@ -65,7 +66,7 @@ authForm.addEventListener('submit', function (e) {
 })
 
 //* switch form autho for sign in and Sign Up
-function switchFormAuto(){
+function switchFormAuto() {
     signIn = !signIn
     if (signIn) {
         formTitle.textContent = 'Sign In'
@@ -75,7 +76,7 @@ function switchFormAuto(){
         username.value = ''
         confirmPassword.value = ''
         email.value = ""
-        password.value= ""
+        password.value = ""
         authSwitch.innerHTML = `
       New to DugFlix? <a href="#" id="switchForm">Register now</a>
     `
@@ -88,6 +89,5 @@ function switchFormAuto(){
         authSwitch.innerHTML = `
      Already have an account <a href="#" id="switchForm">Sign In</a>
     `
-
     }
 }
